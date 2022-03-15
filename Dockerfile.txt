@@ -1,0 +1,5 @@
+From python:3.10-alpine
+WORKDIR /docker-flask-LARA-GAMES
+ADD ./docker-flask-test
+RUN pip install -r requirements.txt
+CMD ["python","app.py"]
