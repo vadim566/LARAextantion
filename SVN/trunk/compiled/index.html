@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Name of the Story{%endblock%}
+{% block content %}
+{% for line in content %}
+<br>
+<table>
+    <tr>
+    <th>story</th>
+    <th>Learn </th>
+    </tr>
+
+<tr>
+    <td>
+     <form action="/index/{{line}}" method="post">
+         <button name="{{line}}" type="submit">{{line}}</button>
+     </form>
+    </td>
+<td colspan="4">
+
+			
+     <form action="/game1/{{line}}" method="get">
+         <button name="{{line}}game 1 new" type="submit">Game 1</button>
+		 
+     </form>
+	
+     <form action="/game2/{{line}}" method="get">
+         <button name="{{line}}game 2 new" type="submit">Game 2</button>
+		 
+     </form>
+	
+     <form action="/game3/{{line}}" method="get">
+         <button name="{{line}}game 3 new" type="submit">Game 3</button>
+         </form>
+         
+     <form action="/game4/{{line}}" method="get">
+         <button name="{{line}}game 4 new" type="submit">Game 4</button>
+		 
+	 </form>
+
+     <form action="/game5/{{line}}" method="get">
+         <button name="{{line}}game 5 new" type="submit">Game 5</button>
+
+	 </form>
+
+    <form action="/game6/{{line}}" method="get">
+         <button name="{{line}}game 6 new" type="submit">Game 6</button>
+
+	 </form>
+
+      <form action="/game7/{{line}}" method="get">
+         <button name="{{line}}game 7 new" type="submit">Game 7</button>
+
+	 </form>
+	 
+	       <form action="/game8/{{line}}" method="get">
+         <button name="{{line}}game 8 new" type="submit">Game 8</button>
+
+	 </form>
+     
+
+</td>
+</tr>
+</table>
+{% endfor %}
+{%endblock  %}

@@ -1,0 +1,106 @@
+
+{% extends "base.html" %}
+{% block title %}game4{%endblock%}
+
+{%block content%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="panel">
+        <div id="result">
+
+        </div>
+        <div class="question-container" id="question">
+<figure>
+    <figcaption>What the missing word that missing in the phrase:</figcaption>
+    <t1>{{ question0 }}</t1>
+</br>
+    <audio
+        controls
+        src="/game4/{{name}}/{{question1}}">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+</figure>
+
+        </div>
+        <div class="option-container">
+            <form>
+                <p>The missing word:<input id="answer" type:="text"></p>
+            </form>
+
+        </div>
+        <div class="navigation">
+            <button id="evaluate">Evaluate</button>
+            <button class="next" onclick="window.location.reload();">Next</button>
+            <button onClick="window.location.reload();">Refresh Page</button>
+        </div>
+    </div>
+    <script>
+
+
+// Set start
+var start = true;
+
+// Iterate
+function iterate(id) {
+
+    // Getting the result display section
+    var result = document.getElementById("result");
+    result.innerText = "";
+
+    // Getting the question
+    const question = document.getElementById("question");
+
+
+
+    var selected = "";
+
+
+    // Grabbing the evaluate button
+    var evaluate = document.getElementById("evaluate");
+
+    // Evaluate method
+    evaluate.addEventListener("click", () => {
+        if ( document.getElementById("answer").value.localeCompare("{{ t_answer }}")==0) {
+            result.innerHTML = "True";
+            result.style.color = "green";
+        } else {
+            result.innerHTML = "False";
+            result.style.color = "red";
+        }
+    })
+}
+
+if (start) {
+    iterate("0");
+}
+
+// Next button and method
+const next = document.getElementsByClassName('next')[0];
+var id = 0;
+
+
+next.addEventListener("click", () => {
+    start = false;
+    if (id < 2) {
+        id++;
+        iterate(id);
+        console.log(id);
+    }
+
+})
+    </script>
+</body>
+</html>
+
+
+{%endblock  %}
